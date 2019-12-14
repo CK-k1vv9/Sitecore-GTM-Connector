@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{A914FAD3-B8E2-4EC2-B8F1-4D2BB9F4E1D3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{987398F8-7E9F-4D15-8F72-8CE433423642}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{8EEC41C2-8B39-4F5E-AF44-FA180DCE422F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{B25ED1E4-5F25-4ACE-96B8-7ED1CBDB60B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XConnect", "XConnect", "{F8AA408D-AF97-44FB-BB85-0955A9E75C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.XConnect", "src\Foundation\XConnect\code\Ignium.Foundation.XConnect.csproj", "{AAF3DB51-7E98-4064-8D5D-68051DB51A15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoogleTagManager", "GoogleTagManager", "{4C2C79ED-6D61-4B95-9BF7-89762229E990}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.GoogleTagManager", "src\Foundation\GoogleTagManager\code\Ignium.Foundation.GoogleTagManager.csproj", "{41299503-9870-4A20-B8ED-6E82E5594E1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{269FC6FA-5BAB-4AC2-B558-DB169E9FC86D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Project.Demo", "src\Project\Demo\code\Ignium.Project.Demo.csproj", "{85F27ADE-FABA-4E7D-875C-F415D74CC2B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.GoogleTagManager.Tests", "src\Foundation\GoogleTagManager\tests\Ignium.Foundation.GoogleTagManager.Tests.csproj", "{7A0BE309-C4EF-4AAC-9228-9831330869E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAF3DB51-7E98-4064-8D5D-68051DB51A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF3DB51-7E98-4064-8D5D-68051DB51A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF3DB51-7E98-4064-8D5D-68051DB51A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF3DB51-7E98-4064-8D5D-68051DB51A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41299503-9870-4A20-B8ED-6E82E5594E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41299503-9870-4A20-B8ED-6E82E5594E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41299503-9870-4A20-B8ED-6E82E5594E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41299503-9870-4A20-B8ED-6E82E5594E1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8AA408D-AF97-44FB-BB85-0955A9E75C49} = {987398F8-7E9F-4D15-8F72-8CE433423642}
+		{AAF3DB51-7E98-4064-8D5D-68051DB51A15} = {F8AA408D-AF97-44FB-BB85-0955A9E75C49}
+		{4C2C79ED-6D61-4B95-9BF7-89762229E990} = {987398F8-7E9F-4D15-8F72-8CE433423642}
+		{41299503-9870-4A20-B8ED-6E82E5594E1A} = {4C2C79ED-6D61-4B95-9BF7-89762229E990}
+		{269FC6FA-5BAB-4AC2-B558-DB169E9FC86D} = {B25ED1E4-5F25-4ACE-96B8-7ED1CBDB60B1}
+		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8} = {269FC6FA-5BAB-4AC2-B558-DB169E9FC86D}
+		{7A0BE309-C4EF-4AAC-9228-9831330869E7} = {4C2C79ED-6D61-4B95-9BF7-89762229E990}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6AA2631-0037-48BA-ABB4-218B25DF204C}
+	EndGlobalSection
+EndGlobal

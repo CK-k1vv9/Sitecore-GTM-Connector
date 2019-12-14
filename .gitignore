@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs/SitecoreGTMConnector
+/packages
+**/code/bin
+**/code/obj/Debug
