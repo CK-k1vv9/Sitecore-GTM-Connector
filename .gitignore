@@ -2,7 +2,9 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/SitecoreGTMConnector
+/.vs
 /packages
 **/code/bin
-**/code/obj/Debug
+**/obj/Debug
+**/obj/Release
+/data
