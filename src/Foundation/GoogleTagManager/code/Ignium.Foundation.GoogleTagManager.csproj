@@ -111,6 +111,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

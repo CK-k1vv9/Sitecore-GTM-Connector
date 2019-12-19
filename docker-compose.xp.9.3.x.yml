@@ -41,6 +41,8 @@ services:
     depends_on:
       - sql
       - solr
+    ports:
+      - "44003:80"
 
   xconnect-automationengine:
     image: ${REGISTRY}sitecore-xp-xconnect-automationengine:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
@@ -123,6 +125,7 @@ services:
   cm:
     image: ${REGISTRY}sitecore-xp-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
     ports:
       - "44001:80"
     environment:
