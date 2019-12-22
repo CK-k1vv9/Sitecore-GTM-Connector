@@ -99,9 +99,9 @@ services:
   cd:
     image: ${REGISTRY}sitecore-xp-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
-    entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
+    ##entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
     volumes:
-      - .\data\website:c:\source
+      - .\deploy\website:c:\src
     ports:
       - "44002:80"
     environment:
@@ -125,7 +125,9 @@ services:
   cm:
     image: ${REGISTRY}sitecore-xp-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
     entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
-    entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
+    ##entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
+    volumes:
+      - .\deploy\website:c:\src
     ports:
       - "44001:80"
     environment:

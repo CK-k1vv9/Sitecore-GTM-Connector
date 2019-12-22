@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		NuGet.config = NuGet.config
-		publishsettingsdebug.targets = publishsettingsdebug.targets
+		publishsettingswebsitedebug.targets = publishsettingswebsitedebug.targets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{987398F8-7E9F-4D15-8F72-8CE433423642}"
