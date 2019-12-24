@@ -5,6 +5,7 @@
 /.vs
 /packages
 **/code/bin
+**/website/bin
 **/obj/Debug
 **/obj/Release
 /data
