@@ -30,6 +30,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Project.Demo", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.GoogleTagManager.Tests", "src\Foundation\GoogleTagManager\tests\Ignium.Foundation.GoogleTagManager.Tests.csproj", "{7A0BE309-C4EF-4AAC-9228-9831330869E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{B6EF3F15-DC40-4DEB-A876-0C9689F4CF3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.Serialization", "src\Foundation\Serialization\website\Ignium.Foundation.Serialization.csproj", "{C21768C6-3168-435E-B5DE-91DF879E948F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{31E68F23-150A-44E0-BA6A-85ABD0BA59D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.Ioc", "src\Foundation\Ioc\website\Ignium.Foundation.Ioc.csproj", "{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +60,14 @@ Global
 		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A0BE309-C4EF-4AAC-9228-9831330869E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C21768C6-3168-435E-B5DE-91DF879E948F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C21768C6-3168-435E-B5DE-91DF879E948F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C21768C6-3168-435E-B5DE-91DF879E948F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C21768C6-3168-435E-B5DE-91DF879E948F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +80,10 @@ Global
 		{269FC6FA-5BAB-4AC2-B558-DB169E9FC86D} = {B25ED1E4-5F25-4ACE-96B8-7ED1CBDB60B1}
 		{85F27ADE-FABA-4E7D-875C-F415D74CC2B8} = {269FC6FA-5BAB-4AC2-B558-DB169E9FC86D}
 		{7A0BE309-C4EF-4AAC-9228-9831330869E7} = {4C2C79ED-6D61-4B95-9BF7-89762229E990}
+		{B6EF3F15-DC40-4DEB-A876-0C9689F4CF3E} = {987398F8-7E9F-4D15-8F72-8CE433423642}
+		{C21768C6-3168-435E-B5DE-91DF879E948F} = {B6EF3F15-DC40-4DEB-A876-0C9689F4CF3E}
+		{31E68F23-150A-44E0-BA6A-85ABD0BA59D4} = {987398F8-7E9F-4D15-8F72-8CE433423642}
+		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8} = {31E68F23-150A-44E0-BA6A-85ABD0BA59D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6AA2631-0037-48BA-ABB4-218B25DF204C}
