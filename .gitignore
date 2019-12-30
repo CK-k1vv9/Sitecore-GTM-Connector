@@ -10,7 +10,7 @@
 **/obj/Release
 /data
 *.user
-/deploy/website
-!.gitkeep
+/deploy/website/*
+!/deploy/website/*.gitkeep
 **/tests/bin/Debug
 **/tests/obj/Debug
