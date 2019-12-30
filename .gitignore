@@ -11,6 +11,6 @@
 /data
 *.user
 /deploy/website
-/deploy/serialization
+!.gitkeep
 **/tests/bin/Debug
 **/tests/obj/Debug
