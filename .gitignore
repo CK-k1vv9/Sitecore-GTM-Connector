@@ -10,4 +10,7 @@
 **/obj/Release
 /data
 *.user
-/deploy
+/deploy/website
+/deploy/serialization
+**/tests/bin/Debug
+**/tests/obj/Debug
