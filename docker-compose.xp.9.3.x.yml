@@ -128,6 +128,7 @@ services:
     ##entrypoint: cmd "start /B powershell Watch-Directory C:\Source C:\inetpub\wwwroot"
     volumes:
       - .\deploy\website:c:\src
+      - .\deploy\serialization:c:\Serialization
     ports:
       - "44001:80"
     environment:
