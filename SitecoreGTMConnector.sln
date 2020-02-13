@@ -6,8 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{A914FAD3-B8E2-4EC2-B8F1-4D2BB9F4E1D3}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		docker-compose.xp.9.3.x.yml = docker-compose.xp.9.3.x.yml
 		NuGet.config = NuGet.config
 		publishsettingswebsitedebug.targets = publishsettingswebsitedebug.targets
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{987398F8-7E9F-4D15-8F72-8CE433423642}"
@@ -37,6 +39,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ioc", "Ioc", "{31E68F23-150A-44E0-BA6A-85ABD0BA59D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.Ioc", "src\Foundation\Ioc\website\Ignium.Foundation.Ioc.csproj", "{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ORM", "ORM", "{C2AFC9B3-3424-44EE-B47F-D7671D60425A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ignium.Foundation.ORM", "src\Foundation\ORM\website\Ignium.Foundation.ORM.csproj", "{682021BF-30B0-44F3-8C70-A3D8EBCFD56C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +74,10 @@ Global
 		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682021BF-30B0-44F3-8C70-A3D8EBCFD56C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682021BF-30B0-44F3-8C70-A3D8EBCFD56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682021BF-30B0-44F3-8C70-A3D8EBCFD56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682021BF-30B0-44F3-8C70-A3D8EBCFD56C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +94,8 @@ Global
 		{C21768C6-3168-435E-B5DE-91DF879E948F} = {B6EF3F15-DC40-4DEB-A876-0C9689F4CF3E}
 		{31E68F23-150A-44E0-BA6A-85ABD0BA59D4} = {987398F8-7E9F-4D15-8F72-8CE433423642}
 		{4B8E842E-D50A-4D59-8872-792ACD8DB2A8} = {31E68F23-150A-44E0-BA6A-85ABD0BA59D4}
+		{C2AFC9B3-3424-44EE-B47F-D7671D60425A} = {987398F8-7E9F-4D15-8F72-8CE433423642}
+		{682021BF-30B0-44F3-8C70-A3D8EBCFD56C} = {C2AFC9B3-3424-44EE-B47F-D7671D60425A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6AA2631-0037-48BA-ABB4-218B25DF204C}

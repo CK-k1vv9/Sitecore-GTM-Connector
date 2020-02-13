@@ -1,5 +1,7 @@
-﻿using Ignium.Foundation.GoogleTagManager.Services;
+﻿using Ignium.Foundation.GoogleTagManager.Controllers;
+using Ignium.Foundation.GoogleTagManager.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Sitecore.Analytics;
 using Sitecore.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -8,11 +10,13 @@ using System.Web;
 
 namespace Ignium.Foundation.GoogleTagManager
 {
-    public class RegisterDependencies : IServicesConfigurator
+    public class DependencyConfigurator : IServicesConfigurator
     {
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<ITrackerService, TrackerService>();
+            serviceCollection.AddTransient<GoalController>();
+            //serviceCollection.AddTransient<OutcomeController>();
         }
     }
 }
