@@ -15,8 +15,9 @@ namespace Ignium.Foundation.GoogleTagManager
         public void Configure(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<ITrackerService, TrackerService>();
+            serviceCollection.AddTransient<ITracker>(provider => Tracker.Current);
             serviceCollection.AddTransient<GoalController>();
-            //serviceCollection.AddTransient<OutcomeController>();
+            serviceCollection.AddTransient<OutcomeController>();
         }
     }
 }

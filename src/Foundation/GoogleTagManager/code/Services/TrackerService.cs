@@ -14,17 +14,21 @@ namespace Ignium.Foundation.GoogleTagManager.Services
 {
     public class TrackerService : ITrackerService
     {
-        public TrackerService()
+        private readonly ITracker _tracker;
+        private readonly IMvcContext _context;
+        public TrackerService(ITracker currentTracker, IMvcContext mvcContext)
         {
+            _tracker = currentTracker;
+            _context = mvcContext;
         }
 
-        public async Task<ResultModel> TrackCurrentGoal(ITracker currentTracker, IMvcContext context, Guid goalId, dynamic data, string text)
+        public async Task<ResultModel> TrackCurrentGoal(Guid goalId, dynamic data, string text)
         {
             var model = new ResultModel();
 
-            EnsureTrackerActive(currentTracker);
+            EnsureTrackerActive(_tracker);
 
-            if (currentTracker == null)
+            if (_tracker == null)
             {
                 model.Success = false;
                 model.Message = "Tracker is null and can't be started!";
@@ -32,9 +36,9 @@ namespace Ignium.Foundation.GoogleTagManager.Services
                 return model;
             }
 
-            if (currentTracker.CurrentPage != null)
+            if (_tracker.CurrentPage != null)
             {
-                Sitecore.Data.Items.Item goalItem = context.SitecoreService.Database.GetItem(new ID(goalId));
+                Sitecore.Data.Items.Item goalItem = _context.SitecoreService.Database.GetItem(new ID(goalId));
 
                 if (goalItem != null)
                 {
@@ -50,14 +54,14 @@ namespace Ignium.Foundation.GoogleTagManager.Services
 
                     await Task.Run(() =>
                     {
-                        var goalEventData = currentTracker.CurrentPage.RegisterGoal(goalTrigger);
+                        var goalEventData = _tracker.CurrentPage.RegisterGoal(goalTrigger);
 
                         goalEventData.Data = data;
                         goalEventData.ItemId = goalItem.ID.ToGuid();
                         goalEventData.DataKey = goalItem.Paths.Path;
                         goalEventData.Text = text;
 
-                        currentTracker.Interaction.AcceptModifications();
+                        _tracker.Interaction.AcceptModifications();
                     });
                 }
             }
@@ -65,23 +69,23 @@ namespace Ignium.Foundation.GoogleTagManager.Services
             return model;
         }
 
-        public async Task<bool> TrackCurrentOutcome(ITracker currentTracker, IMvcContext context, Guid outcomeDefinitionId, string currencyCode, decimal amount)
+        public async Task<bool> TrackCurrentOutcome(Guid outcomeDefinitionId, string currencyCode, decimal amount)
         {
-            EnsureTrackerActive(currentTracker);
+            EnsureTrackerActive(_tracker);
 
             await Task.Run(() => {
-                currentTracker.Interaction.RegisterOutcome(Tracker.MarketingDefinitions.Outcomes[outcomeDefinitionId], currencyCode, amount);
+                _tracker.Interaction.RegisterOutcome(Tracker.MarketingDefinitions.Outcomes[outcomeDefinitionId], currencyCode, amount);
             });
 
             return true;
         }
 
-        public async Task<bool> TrackCurrentPageOutcome(ITracker currentTracker, IMvcContext context, Guid outcomeDefinitionId, string currencyCode, decimal amount)
+        public async Task<bool> TrackCurrentPageOutcome(Guid outcomeDefinitionId, string currencyCode, decimal amount)
         {
-            EnsureTrackerActive(currentTracker);
+            EnsureTrackerActive(_tracker);
 
             await Task.Run(() => {
-                currentTracker.CurrentPage.RegisterOutcome(Tracker.MarketingDefinitions.Outcomes[outcomeDefinitionId], currencyCode, amount);
+                _tracker.CurrentPage.RegisterOutcome(Tracker.MarketingDefinitions.Outcomes[outcomeDefinitionId], currencyCode, amount);
             });
 
             return true;
@@ -89,8 +93,8 @@ namespace Ignium.Foundation.GoogleTagManager.Services
 
         private void EnsureTrackerActive(ITracker currentTracker)
         {
-            if (currentTracker == null)
-                currentTracker.StartTracking();
+            if (_tracker == null)
+                _tracker.StartTracking();
         }
     }
 }

@@ -14,18 +14,16 @@ namespace Ignium.Foundation.GoogleTagManager.Controllers
     public class OutcomeController : Controller
     {
         private readonly ITrackerService _trackerService;
-        private readonly IMvcContext _mvcContext;
-        public OutcomeController(ITrackerService trackerService, IMvcContext mvcContext)
+        public OutcomeController(ITrackerService trackerService)
         {
             _trackerService = trackerService;
-            _mvcContext = mvcContext;
         }
 
         [HttpGet]
         [Route("api/googletagmanager/outcomes/track")]
         public async Task<ActionResult> TrackPageOutcome(Guid outcomeDefinitionId, decimal amount, string currencyCode = "USD")
         {
-            bool result = await _trackerService.TrackCurrentPageOutcome(Tracker.Current, _mvcContext, outcomeDefinitionId, currencyCode, amount);
+            bool result = await _trackerService.TrackCurrentPageOutcome(outcomeDefinitionId, currencyCode, amount);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
@@ -34,7 +32,7 @@ namespace Ignium.Foundation.GoogleTagManager.Controllers
         [Route("api/googletagmanager/outcomes/pages/track")]
         public async Task<ActionResult> TrackOutcome(Guid outcomeDefinitionId, decimal amount, string currencyCode = "USD")
         {
-            bool result = await _trackerService.TrackCurrentOutcome(Tracker.Current, _mvcContext, outcomeDefinitionId, currencyCode, amount);
+            bool result = await _trackerService.TrackCurrentOutcome(outcomeDefinitionId, currencyCode, amount);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }

@@ -11,10 +11,10 @@ namespace Ignium.Foundation.GoogleTagManager.Services
 {
     public interface ITrackerService
     {
-        Task<ResultModel> TrackCurrentGoal(ITracker currentTracker, IMvcContext context, Guid goalId, dynamic data, string text);
+        Task<ResultModel> TrackCurrentGoal(Guid goalId, dynamic data, string text);
 
-        Task<bool> TrackCurrentOutcome(ITracker currentTracker, IMvcContext context, Guid outcomeDefinitionId, string currencyCode, decimal amount);
+        Task<bool> TrackCurrentOutcome(Guid outcomeDefinitionId, string currencyCode, decimal amount);
 
-        Task<bool> TrackCurrentPageOutcome(ITracker currentTracker, IMvcContext context, Guid outcomeDefinitionId, string currencyCode, decimal amount);
+        Task<bool> TrackCurrentPageOutcome(Guid outcomeDefinitionId, string currencyCode, decimal amount);
     }
 }

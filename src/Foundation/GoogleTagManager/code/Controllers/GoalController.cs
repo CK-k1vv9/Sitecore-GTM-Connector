@@ -18,12 +18,10 @@ namespace Ignium.Foundation.GoogleTagManager.Controllers
     public class GoalController : Controller
     {
         private readonly ITrackerService _trackerService;
-        private readonly IMvcContext _mvcContext;
 
-        public GoalController(ITrackerService trackerService, IMvcContext mvcContext)
+        public GoalController(ITrackerService trackerService)
         {
             _trackerService = trackerService;
-            _mvcContext = mvcContext;
         }
 
         [Route("api/googletagmanager/goals/track")]
@@ -38,7 +36,7 @@ namespace Ignium.Foundation.GoogleTagManager.Controllers
                 Tracker.StartTracking();
             }
 
-            ResultModel result = await _trackerService.TrackCurrentGoal(Tracker.Current, _mvcContext, goalId, data, text);
+            ResultModel result = await _trackerService.TrackCurrentGoal(goalId, data, text);
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
