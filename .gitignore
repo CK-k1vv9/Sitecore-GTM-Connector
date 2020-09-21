@@ -8,9 +8,10 @@
 **/website/bin
 **/obj/Debug
 **/obj/Release
-/data
+/docker/data/*
+!/docker/data/*.gitkeep
 *.user
-/deploy/website/*
-!/deploy/website/*.gitkeep
+/docker/deploy/website/*
+!/docker/deploy/website/*.gitkeep
 **/tests/bin/Debug
 **/tests/obj/Debug
