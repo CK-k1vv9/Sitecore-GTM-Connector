@@ -8,10 +8,17 @@
 **/website/bin
 **/obj/Debug
 **/obj/Release
+*.user
+mkcert.exe
+**/bin/Debug
+**/obj/Debug
+
+# Docker Ignore
 /docker/data/*
 !/docker/data/*.gitkeep
-*.user
+
 /docker/deploy/website/*
 !/docker/deploy/website/*.gitkeep
-**/tests/bin/Debug
-**/tests/obj/Debug
+
+/docker/traefik/certs/*
+!/docker/traefik/certs/*.gitkeep

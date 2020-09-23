@@ -1,10 +1,5 @@
 [CmdletBinding()]
 Param (
-    [Parameter(Mandatory = $true)]
-    [string]
-    [ValidateNotNullOrEmpty()]
-    $LicenseXmlPath,
-
     [string]
     $HostName = "sitecoregtm",
     
@@ -21,12 +16,12 @@ Param (
 
 $ErrorActionPreference = "Stop";
 
-if (-not (Test-Path $LicenseXmlPath)) {
-    throw "Did not find $LicenseXmlPath"
-}
-if (-not (Test-Path $LicenseXmlPath -PathType Leaf)) {
-    throw "$LicenseXmlPath is not a file"
-}
+#if (-not (Test-Path $LicenseXmlPath)) {
+#    throw "Did not find $LicenseXmlPath"
+#}
+#if (-not (Test-Path $LicenseXmlPath -PathType Leaf)) {
+#    throw "$LicenseXmlPath is not a file"
+#}
 
 # Check for Sitecore Gallery
 Import-Module PowerShellGet
@@ -84,7 +79,7 @@ Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE" -Value (Get-SitecoreC
 Set-DockerComposeEnvFileVariable "SITECORE_ID_CERTIFICATE_PASSWORD" -Value $idCertPassword
 
 # SITECORE_LICENSE
-Set-DockerComposeEnvFileVariable "SITECORE_LICENSE" -Value (ConvertTo-CompressedBase64String -Path $LicenseXmlPath)
+#Set-DockerComposeEnvFileVariable "SITECORE_LICENSE" -Value (ConvertTo-CompressedBase64String -Path $LicenseXmlPath)
 
 ##################################
 # Configure TLS/HTTPS certificates

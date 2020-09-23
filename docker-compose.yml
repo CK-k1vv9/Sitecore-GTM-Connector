@@ -62,7 +62,7 @@ services:
       Sitecore_Sitecore__IdentityServer__CertificateRawData: ${SITECORE_ID_CERTIFICATE}
       Sitecore_Sitecore__IdentityServer__PublicOrigin: https://${ID_HOST}
       Sitecore_Sitecore__IdentityServer__CertificateRawDataPassword: ${SITECORE_ID_CERTIFICATE_PASSWORD}
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH_FULL}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH_FULL}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -99,7 +99,7 @@ services:
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Reporting.Client: http://xdbautomationrpt
       Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xdbrefdata
       Sitecore_ConnectionStrings_Redis.Sessions: redis:6379,ssl=False,abortConnect=False
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH_FULL}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH_FULL}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
@@ -134,7 +134,7 @@ services:
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Operations.Client: http://xconnect
       Sitecore_ConnectionStrings_Xdb.MarketingAutomation.Reporting.Client: http://xconnect
       Sitecore_ConnectionStrings_Xdb.ReferenceData.Client: http://xconnect
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH_FULL}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH_FULL}
       Sitecore_Identity_Server_Authority: https://${ID_HOST}
       Sitecore_Identity_Server_InternalAuthority: http://id
       Sitecore_Identity_Server_CallbackAuthority: https://${CM_HOST}
@@ -161,7 +161,7 @@ services:
       solr:
         condition: service_started
     environment:
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH}
       Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Processing.Engine.Storage: Data Source=mssql;Initial Catalog=Sitecore.Processing.Engine.Storage;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Reporting: Data Source=mssql;Initial Catalog=Sitecore.Reporting;User ID=sa;Password=${SQL_SA_PASSWORD}
@@ -177,6 +177,8 @@ services:
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1"]
       timeout: 300s
+    volumes:
+      - ${SITECORE_LICENSE_PATH}:c:\license:ro
   xdbsearchworker:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbsearchworker:${SITECORE_VERSION}
@@ -187,13 +189,16 @@ services:
     environment:
       Sitecore_ConnectionStrings_Collection: Data Source=mssql;Initial Catalog=Sitecore.Xdb.Collection.ShardMapManager;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_SolrCore: http://solr:8983/solr/sitecore_xdb
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH}
       Sitecore_Sitecore:XConnect:SearchIndexer:Services:Solr.SolrReaderSettings:Options:RequireHttps: 'false'
       Sitecore_Sitecore:XConnect:SearchIndexer:Services:Solr.SolrWriterSettings:Options:RequireHttps: 'false'
       Sitecore_Sitecore:XConnect:CollectionSearch:Services:XConnectSolrHealthCheckServicesConfiguration:Options:RequireHttps: 'false'
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1 -Port 8080"]
       timeout: 300s
+    volumes:
+      - ${SITECORE_LICENSE_PATH}:c:\license:ro
   xdbautomationworker:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-xdbautomationworker:${SITECORE_VERSION}
@@ -206,10 +211,12 @@ services:
       Sitecore_ConnectionStrings_Xdb.Marketingautomation: Data Source=mssql;Initial Catalog=Sitecore.Marketingautomation;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Xdb.Referencedata: Data Source=mssql;Initial Catalog=Sitecore.Referencedata;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1 -Port 8080"]
       timeout: 300s
+    volumes:
+      - ${SITECORE_LICENSE_PATH}:c:\license:ro
   cortexprocessingworker:
     isolation: ${ISOLATION}
     image: ${SITECORE_DOCKER_REGISTRY}sitecore-xp0-cortexprocessingworker:${SITECORE_VERSION}
@@ -227,7 +234,9 @@ services:
       Sitecore_ConnectionStrings_XConnect.Search: http://xconnect
       Sitecore_ConnectionStrings_Messaging: Data Source=mssql;Initial Catalog=Sitecore.Messaging;User ID=sa;Password=${SQL_SA_PASSWORD}
       Sitecore_ConnectionStrings_Reporting: Data Source=mssql;Initial Catalog=Sitecore.Reporting;User ID=sa;Password=${SQL_SA_PASSWORD}
-      Sitecore_License_Path: ${SITECORE_LICENSE_PATH}
+      SITECORE_LICENSE_LOCATION: ${SITECORE_LICENSE_PATH}
     healthcheck:
       test: ["CMD", "powershell", "-command", "C:/Healthchecks/Healthcheck.ps1 -Port 8080"]
       timeout: 300s
+    volumes:
+      - ${SITECORE_LICENSE_PATH}:c:\license:ro

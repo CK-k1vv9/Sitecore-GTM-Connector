@@ -59,6 +59,7 @@ services:
     volumes:
       - ${LOCAL_DEPLOY_PATH}\website:C:\deploy
       - ${LOCAL_DATA_PATH}\cd:C:\inetpub\wwwroot\App_Data\logs
+      - ${SITECORE_LICENSE_PATH}:c:\license:ro
     entrypoint: powershell -Command "& C:\tools\entrypoints\iis\Development.ps1"
     labels:
       - "traefik.http.routers.cd.entrypoints=websecure"
@@ -78,4 +79,5 @@ services:
     volumes:
       - ${LOCAL_DEPLOY_PATH}\website:C:\deploy
       - ${LOCAL_DATA_PATH}\cm:C:\inetpub\wwwroot\App_Data\logs
+      - ${SITECORE_LICENSE_PATH}:c:\license
     entrypoint: powershell -Command "& C:\tools\entrypoints\iis\Development.ps1"
