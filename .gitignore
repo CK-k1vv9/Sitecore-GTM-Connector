@@ -14,11 +14,11 @@ mkcert.exe
 **/obj/Debug
 
 # Docker Ignore
-/docker/data/*
-!/docker/data/*.gitkeep
+/docker/data/*/*
+!/docker/data/*/*.gitkeep
 
-/docker/deploy/website/*
-!/docker/deploy/website/*.gitkeep
+/docker/deploy/*/*
+!/docker/deploy/*/*.gitkeep
 
 /docker/traefik/certs/*
 !/docker/traefik/certs/*.gitkeep
